@@ -1,0 +1,65 @@
+HALO CONVERSE  -  offline voice chat for your AMD Ryzen AI Max+ 395
+=====================================================================
+
+Talk to a local AI through your headset. Everything (listening, thinking,
+speaking) runs on this PC. After setup, unplug the internet and it still works.
+
+  Ears   : Whisper (small.en) turns your voice into text
+  Brain  : Ollama runs the AI model (default gemma3:27b, plus llama3.2:3b for speed)
+  Voice  : Piper speaks the reply (4 voices included)
+
+
+SETUP (once, needs internet)
+----------------------------
+1. Unzip this folder somewhere permanent, e.g.  C:\Apps\Halo Converse
+2. Double-click  "Install Halo Converse.bat"
+   - installs Python 3.12 and Ollama if you don't have them
+   - downloads the voices, speech recognizer and AI models (~20 GB, mostly the model)
+   - puts a "Halo Converse" shortcut on your desktop
+3. Done. You can go offline now.
+
+
+USING IT
+--------
+Double-click "Halo Converse" on the desktop. It opens in its own window.
+Click "Start talking" and allow the microphone.
+
+  Push to talk : hold SPACE (or hold the button), talk, let go.
+  Hands-free   : just talk. It answers when you pause.
+                 Talking over a reply interrupts it.
+  Esc          : stop the current reply
+  Typing       : the text box works too
+
+Flip between the two with the toggle at the bottom left.
+
+Gear menu:
+  - pick your headset mic and headphones
+  - choose the voice and speaking speed
+  - set Hands-free sensitivity (watch the little bar under the halo:
+    put the line just above where it sits when you're quiet)
+  - change Halo Converse's personality
+
+The model picker at the top shows every model installed in Ollama.
+Want a different one?  Open a terminal:  ollama pull qwen3:30b
+then pick it from the list.
+
+
+USING LM STUDIO INSTEAD OF OLLAMA
+---------------------------------
+Open config.json in Notepad and change
+    "llm_backend": "ollama"   ->   "llm_backend": "openai"
+Start LM Studio's local server (port 1234) with a model loaded, then
+launch Halo Converse.
+
+
+IF SOMETHING ISN'T WORKING
+--------------------------
+The three dots at the top (Brain / Ears / Voice) go green when ready.
+  Brain red  -> Ollama isn't running. Start "Ollama" from the Start menu.
+  Ears red   -> run the installer again to re-download the speech recognizer.
+  Voice amber-> no Piper voice found; it falls back to the Windows voice.
+                Run the installer again to fetch the voices.
+Replies slow? Pick llama3.2:3b in the model picker - it's much faster.
+
+The black window that opens with the app shows what's happening.
+Close it to quit Halo Converse.

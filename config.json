@@ -1,0 +1,19 @@
+{
+  "app_name": "Halo Converse",
+  "theme": "halo",
+  "port": 8765,
+  "llm_backend": "ollama",
+  "ollama_url": "http://127.0.0.1:11434",
+  "openai_url": "http://127.0.0.1:1234/v1",
+  "model": "gemma3:27b",
+  "models_to_install": ["gemma3:27b", "llama3.2:3b"],
+  "whisper_model": "small.en",
+  "whisper_threads": 8,
+  "whisper_beam": 5,
+  "voice": "en_US-lessac-high",
+  "voices_to_install": ["en_US-lessac-high", "en_US-ryan-high", "en_GB-cori-high", "en_GB-alan-medium"],
+  "speech_speed": 1.0,
+  "system_prompt": "You are Halo Converse, a calm, articulate and knowledgeable voice assistant running privately on Chuck's AMD Ryzen AI Max+ 395 computer. You speak with quiet confidence and a touch of wit. Keep answers concise and natural for listening, usually two to four sentences, and offer more detail if asked. If you don't know something, say so plainly.",
+  "max_history": 24,
+  "open_browser": true
+}
