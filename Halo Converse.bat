@@ -17,5 +17,5 @@ tasklist /fi "imagename eq ollama.exe" | find /i "ollama.exe" >nul || (
     start "" /min ollama serve
   )
 )
-".venv\Scripts\python.exe" server.py
-if errorlevel 1 pause
+".venv\Scripts\python.exe" server.py %*
+if errorlevel 1 if not exist "data\updating.flag" pause

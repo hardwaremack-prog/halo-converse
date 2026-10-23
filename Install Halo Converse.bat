@@ -74,11 +74,10 @@ echo [4/6] Downloading voices, speech recognizer and AI models ...
 ".venv\Scripts\python.exe" setup_models.py
 
 rem ---- 5. Desktop shortcut ----
-echo [5/6] Adding a desktop shortcut ...
-powershell -NoProfile -ExecutionPolicy Bypass -Command ^
-  "$d=[Environment]::GetFolderPath('Desktop'); $s=(New-Object -ComObject WScript.Shell).CreateShortcut(\"$d\Halo Converse.lnk\");" ^
-  "$s.TargetPath='%~dp0Halo Converse.bat'; $s.WorkingDirectory='%~dp0'; $s.IconLocation='%~dp0web\icon.ico';" ^
-  "$s.WindowStyle=7; $s.Description='Offline voice chat'; $s.Save()"
+echo [5/6] Adding desktop shortcuts ...
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0shortcuts.ps1"
+if not exist data mkdir data
+".venv\Scripts\python.exe" -c "import hashlib,shutil;open('data/requirements.sha1','w').write(hashlib.sha1(open('requirements.txt','rb').read()).hexdigest());shutil.copy('config.json','data/config.defaults.json')"
 
 echo [6/6] Letting other devices on your home network use it ...
 echo        Windows will ask for permission - click Yes.
@@ -86,5 +85,6 @@ call "Allow on my network.bat" /quiet
 
 echo.
 echo  Done! Double-click "Halo Converse" on your desktop to start.
+echo  New versions: "Update now" in the gear menu, or the "Update Halo Converse" icon.
 echo.
 pause

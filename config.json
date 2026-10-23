@@ -26,5 +26,6 @@
   "open_browser": true,
   "share_on_network": true,
   "share_port": 8443,
-  "unload_on_switch": false
+  "unload_on_switch": false,
+  "update_repo": "hardwaremack-prog/halo-converse"
 }

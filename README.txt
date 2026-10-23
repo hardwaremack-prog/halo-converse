@@ -68,6 +68,17 @@ Can't connect?
   - To turn sharing off, set "share_on_network": false in config.json.
 
 
+GETTING UPDATES
+---------------
+When the PC is online, Halo Converse checks for a new version on start and
+shows an "Update available" button at the top. Any of these updates it:
+  1. Gear menu -> Updates -> "Update now"
+  2. The "Update Halo Converse" icon on the desktop
+  3. Double-click "Update Halo Converse.bat" in this folder
+Models, voices, settings, chats and config.json changes are kept.
+If it's open, it restarts by itself and the window reloads.
+
+
 USING LM STUDIO INSTEAD OF OLLAMA
 ---------------------------------
 Open config.json in Notepad and change

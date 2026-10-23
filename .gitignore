@@ -8,3 +8,7 @@ __pycache__/
 data/cert.pem
 data/key.pem
 data/cert_ips.json
+data/*.json
+data/*.sha1
+data/*.log
+data/*.flag
