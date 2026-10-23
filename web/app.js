@@ -227,7 +227,37 @@
     }, 1200);
   };
 
+  // Network address in the header (tap to copy the full link)
+  function renderIp() {
+    const chip = $("ipChip");
+    let ip = "", link = "", tip = "";
+    if (!isHost) {
+      ip = location.hostname; link = location.origin + "/";
+      tip = "Connected to Halo at " + link;
+    } else if ((status.lan_ips || []).length) {
+      ip = status.lan_ips[0];
+      const sharing = (status.share_urls || []).length > 0;
+      link = sharing ? `https://${ip}:${status.share_port}/` : "";
+      tip = sharing ? `Other devices on your Wi-Fi open ${link} (tap to copy)` : "This PC's IP address. Network sharing is off, so other devices can't connect yet.";
+      if (sharing && status.share_port) ip += ":" + status.share_port;
+      chip.classList.toggle("off", !sharing);
+    }
+    if (!ip) { chip.style.display = "none"; return; }
+    chip.style.display = "";
+    chip.textContent = ip;
+    chip.title = tip;
+    chip.onclick = async () => {
+      const text = link || ip;
+      try { await navigator.clipboard.writeText(text); } catch {
+        const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t); t.select();
+        try { document.execCommand("copy"); } catch {} t.remove();
+      }
+      chip.textContent = "Copied ✓"; setTimeout(() => (chip.textContent = ip), 1200);
+    };
+  }
+
   function renderShare() {
+    renderIp();
     const box = $("shareBox");
     $("shareSection").style.display = (isHost && !(status.share_urls || []).length && !status.share_error) ? "none" : "";
     if (!isHost) { box.innerHTML = `<p class="fine">You're connected over your home network. Your chats and settings stay in this browser.</p>`; return; }

@@ -480,6 +480,8 @@ class Handler(BaseHTTPRequestHandler):
                 "version": VERSION,
                 "can_update": updates_supported(),
                 "share_error": NET["error"] if self.is_host else None,
+                "lan_ips": local_ips() if self.is_host else [],
+                "share_port": int(CONFIG["share_port"]),
             })
         if path == "/api/settings":
             return self._send(200, get_settings())

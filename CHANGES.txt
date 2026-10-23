@@ -1,3 +1,7 @@
+1.4.1  (October 23, 2026)
+- The PC's network address (IP) is shown at the top, next to the name. Tap it to copy the link
+  other devices use
+
 1.4.0  (October 22, 2026)
 - Real documents: say "make a PDF" (or tap the new document button) and it writes the
   chat up as a clean PDF with a title and headings, saves it in Documents and opens it
