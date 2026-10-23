@@ -44,6 +44,30 @@ Want a different one?  Open a terminal:  ollama pull qwen3:30b
 then pick it from the list.
 
 
+USING IT FROM OTHER DEVICES ON YOUR NETWORK
+-------------------------------------------
+Halo Converse also works from phones, tablets and other computers on your
+home Wi-Fi. Leave it running on the AMD 395, then on the other device open:
+
+    https://<this PC's address>:8443
+
+The exact address is in the gear menu under "Use from other devices"
+(and in the black window when it starts), e.g. https://192.168.1.50:8443
+
+  - First visit: the browser warns about the certificate. That's expected,
+    it's Halo's own private certificate. Choose Advanced -> Continue
+    (iPhone: Show Details -> visit this website). Then allow the microphone.
+  - Each device gets its own conversation, voice and talk-mode settings.
+  - Only this PC can change the personality.
+  - Works on your home network only, never the internet.
+
+Can't connect?
+  - Run "Allow on my network.bat" (opens port 8443 in Windows Firewall).
+  - In Windows Settings > Network, your Wi-Fi/Ethernet should be set to
+    "Private network", not "Public".
+  - To turn sharing off, set "share_on_network": false in config.json.
+
+
 USING LM STUDIO INSTEAD OF OLLAMA
 ---------------------------------
 Open config.json in Notepad and change

@@ -5,3 +5,6 @@ models/whisper/*/
 data/settings.json
 *.log
 __pycache__/
+data/cert.pem
+data/key.pem
+data/cert_ips.json

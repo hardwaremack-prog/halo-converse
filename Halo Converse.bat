@@ -7,6 +7,8 @@ if not exist ".venv\Scripts\python.exe" (
   pause
   exit /b 1
 )
+rem Network sharing needs this (added in an update)
+".venv\Scripts\python.exe" -c "import cryptography" >nul 2>nul || ".venv\Scripts\python.exe" -m pip install cryptography --quiet
 rem Make sure Ollama is running
 tasklist /fi "imagename eq ollama.exe" | find /i "ollama.exe" >nul || (
   if exist "%LOCALAPPDATA%\Programs\Ollama\ollama app.exe" (
